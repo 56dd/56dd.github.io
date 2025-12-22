@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -172,6 +172,20 @@
       color: rgba(255,255,255,.55);
       white-space:nowrap;
     }
+    .tags{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-top:12px;
+    }
+    .tag{
+      padding:6px 10px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background: rgba(255,255,255,.03);
+      font-size:13px;
+      color:var(--muted);
+    }
     .footer{
       margin-top:16px;
       display:flex;
@@ -204,7 +218,7 @@
         </div>
       </div>
 
-      <div class="badge" title="公开身份信息（用于 OpenReview 验证）">
+      <div class="badge" title="Public identity for verification">
         <span>Identity</span>
         <span><strong>Xuyuan Zhu</strong></span>
         <span class="muted">·</span>
@@ -216,8 +230,8 @@
       <section class="card">
         <h2>About</h2>
         <p class="muted" style="margin:0; line-height:1.7;">
-          你好！我是 <strong>Xuyuan Zhu</strong>。这是一个简洁的公开主页，用于学术平台（例如 OpenReview）进行身份验证与展示。
-          目前我主要维护我的 GitHub 项目。
+          Hi, I am <strong>Xuyuan Zhu</strong>, a student at the <strong>University of Chinese Academy of Sciences (UCAS)</strong>.
+          This is a minimal public homepage intended for academic services such as <strong>OpenReview</strong>.
         </p>
 
         <div class="kvs">
@@ -227,18 +241,26 @@
           <div class="k">Email</div>
           <div><a href="mailto:zhuxuyuan22@mails.ucas.ac.cn">zhuxuyuan22@mails.ucas.ac.cn</a></div>
 
+          <div class="k">Affiliation</div>
+          <div>University of Chinese Academy of Sciences (UCAS)</div>
+
           <div class="k">GitHub</div>
           <div><a href="https://github.com/56dd" target="_blank" rel="noopener noreferrer">https://github.com/56dd</a></div>
+        </div>
 
-          <div class="k">Note</div>
-          <div class="muted">This page intentionally contains minimal info.</div>
+        <div class="tags" aria-label="Interests">
+          <span class="tag">Natural Language Processing</span>
+          <span class="tag">Large Language Models</span>
+          <span class="tag">LLMs</span>
+          <span class="tag">Information Retrieval</span>
+          <span class="tag">Evaluation</span>
         </div>
 
         <div style="margin-top:14px; border-top:1px solid var(--line); padding-top:12px;">
-          <h2 style="margin:0 0 10px;">OpenReview requirement</h2>
+          <h2 style="margin:0 0 10px;">Verification</h2>
           <p class="muted" style="margin:0; line-height:1.7;">
-            本页面清晰显示 <strong>姓名</strong> 与 <strong>邮箱</strong>，并且是公开可访问链接。
-            你可以把此页面 URL 填到 OpenReview 的 <code>Homepage URL</code> 字段。
+            This page publicly displays both <strong>name</strong> and <strong>email</strong>.
+            You can use its URL as your <code>Homepage URL</code> in OpenReview.
           </p>
         </div>
       </section>
@@ -246,7 +268,7 @@
       <aside class="card">
         <h2>Links</h2>
         <p class="muted" style="margin:0 0 10px; line-height:1.7;">
-          目前你只有 GitHub 账号也完全没问题，后续有 Google Scholar / ORCID 再补充即可。
+          More profiles (e.g., Google Scholar or ORCID) can be added later. For now, GitHub is sufficient.
         </p>
 
         <div class="btns">
@@ -265,15 +287,6 @@
             </span>
             <span class="hint">Mail ↗</span>
           </a>
-        </div>
-
-        <div style="margin-top:14px; border-top:1px solid var(--line); padding-top:12px;">
-          <h2 style="margin:0 0 10px;">Quick publish</h2>
-          <ol class="muted" style="margin:0; padding-left:18px; line-height:1.75;">
-            <li>在 <code>username.github.io</code> 仓库根目录创建/上传 <code>index.html</code></li>
-            <li>Settings → Pages → <code>main</code> / <code>(root)</code></li>
-            <li>访问 <code>https://username.github.io</code> 检查是否生效</li>
-          </ol>
         </div>
       </aside>
     </div>
