@@ -1,12 +1,333 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Xuyuan Zhu</title>
+  <meta name="description" content="Xuyuan Zhu — personal academic homepage." />
+
+  <style>
+    :root{
+      --bg: #0b1020;
+      --card: rgba(255,255,255,.08);
+      --card2: rgba(255,255,255,.06);
+      --text: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.68);
+      --line: rgba(255,255,255,.12);
+      --accent: #7aa2ff;
+      --accent2:#66e3c4;
+      --shadow: 0 18px 50px rgba(0,0,0,.45);
+      --radius: 20px;
+      --maxw: 980px;
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color: var(--text);
+      background:
+        radial-gradient(1200px 700px at 10% 10%, rgba(122,162,255,.25), transparent 55%),
+        radial-gradient(900px 600px at 85% 20%, rgba(102,227,196,.18), transparent 60%),
+        radial-gradient(1000px 700px at 40% 110%, rgba(255,255,255,.10), transparent 50%),
+        linear-gradient(180deg, #070a14, var(--bg));
+      overflow-x:hidden;
+    }
+
+    a{ color:inherit; text-decoration:none; }
+    a:hover{ text-decoration:underline; }
+
+    .wrap{
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 44px 18px 56px;
+    }
+
+    header{
+      display:flex;
+      gap:18px;
+      align-items:center;
+      justify-content:space-between;
+      margin-bottom: 18px;
+    }
+
+    .brand{
+      display:flex;
+      gap:14px;
+      align-items:center;
+      min-width: 0;
+    }
+
+    .avatar{
+      width:56px; height:56px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, rgba(122,162,255,.9), rgba(102,227,196,.8));
+      box-shadow: 0 10px 30px rgba(0,0,0,.35);
+      position:relative;
+      overflow:hidden;
+    }
+    .avatar::after{
+      content:"";
+      position:absolute; inset:-40%;
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.35), transparent 55%);
+      transform: rotate(25deg);
+    }
+
+    .nameblock{ min-width:0; }
+    .nameblock h1{
+      font-size: 22px;
+      line-height:1.1;
+      margin:0;
+      letter-spacing:.2px;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+    .nameblock p{
+      margin:6px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .pill{
+      display:inline-flex;
+      gap:8px;
+      align-items:center;
+      padding:10px 14px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      border-radius: 999px;
+      box-shadow: 0 10px 22px rgba(0,0,0,.25);
+      backdrop-filter: blur(10px);
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:16px;
+      margin-top: 18px;
+    }
+
+    .card{
+      background: linear-gradient(180deg, var(--card), var(--card2));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 18px;
+      backdrop-filter: blur(12px);
+    }
+
+    .card h2{
+      margin:0 0 10px;
+      font-size: 16px;
+      letter-spacing:.2px;
+    }
+
+    .muted{ color: var(--muted); }
+
+    .kvs{
+      display:grid;
+      grid-template-columns: 110px 1fr;
+      gap:10px 12px;
+      margin-top: 10px;
+      font-size: 14px;
+    }
+
+    .kvs .k{
+      color: var(--muted);
+    }
+
+    .kbd{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:6px 10px;
+      border:1px solid var(--line);
+      border-radius: 12px;
+      background: rgba(255,255,255,.04);
+      font-size: 13px;
+      color: var(--text);
+      white-space:nowrap;
+    }
+
+    .btns{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top: 12px;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 12px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      transition: transform .08s ease, background .2s ease;
+      font-size: 14px;
+    }
+    .btn:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.07);
+      text-decoration:none;
+    }
+    .dot{
+      width:10px;height:10px;border-radius:999px;
+      background: var(--accent);
+      box-shadow: 0 0 0 4px rgba(122,162,255,.18);
+    }
+    .dot.g{ background: var(--accent2); box-shadow: 0 0 0 4px rgba(102,227,196,.16); }
+
+    .tags{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-top: 10px;
+    }
+    .tag{
+      padding:6px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,.03);
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .pubs{
+      margin-top: 14px;
+      padding-top: 12px;
+      border-top: 1px solid var(--line);
+    }
+    .pub{
+      padding:10px 0;
+      border-bottom: 1px dashed rgba(255,255,255,.12);
+    }
+    .pub:last-child{ border-bottom:none; }
+    .pub .t{ font-weight: 600; }
+    .pub .m{ color: var(--muted); font-size: 13px; margin-top: 6px; }
+
+    footer{
+      margin-top: 18px;
+      display:flex;
+      justify-content:space-between;
+      gap:10px;
+      color: rgba(255,255,255,.55);
+      font-size: 12px;
+      padding: 4px 6px;
+    }
+
+    @media (max-width: 860px){
+      .grid{ grid-template-columns: 1fr; }
+      header{ flex-direction:column; align-items:flex-start; }
+      .pill{ width:100%; justify-content:space-between; }
+    }
+  </style>
 </head>
+
 <body>
-  <h1>Xuyuan Zhu</h1>
-  <p>Email: zhuxuyuan22@mails.ucas.ac.cn</p>
-  <p>Personal homepage for academic use.</p>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="avatar" aria-hidden="true"></div>
+        <div class="nameblock">
+          <h1>Xuyuan Zhu</h1>
+          <p class="muted">Personal homepage for academic use</p>
+        </div>
+      </div>
+
+      <div class="pill" title="Public identity info (useful for OpenReview verification)">
+        <span>Open identity</span>
+        <span class="kbd">Name: <strong>Xuyuan Zhu</strong></span>
+        <span class="kbd">Email: <strong>zhuxuyuan22@mails.ucas.ac.cn</strong></span>
+      </div>
+    </header>
+
+    <section class="grid">
+      <div class="card">
+        <h2>About</h2>
+        <p class="muted" style="margin:0; line-height:1.65;">
+          Hi! I’m <strong>Xuyuan Zhu</strong>. This page is a lightweight public profile for academic
+          services such as <strong>OpenReview</strong>. You can customize it with your affiliation,
+          research interests, and links.
+        </p>
+
+        <div class="kvs" style="margin-top:14px;">
+          <div class="k">Name</div><div> Xuyuan Zhu</div>
+          <div class="k">Email</div><div><a href="mailto:zhuxuyuan22@mails.ucas.ac.cn">zhuxuyuan22@mails.ucas.ac.cn</a></div>
+          <div class="k">Affiliation</div><div class="muted">UCAS (edit this line as needed)</div>
+          <div class="k">Location</div><div class="muted">China (optional)</div>
+        </div>
+
+        <div class="tags" aria-label="Research interests">
+          <span class="tag">Machine Learning</span>
+          <span class="tag">NLP</span>
+          <span class="tag">LLMs</span>
+          <span class="tag">Evaluation</span>
+          <span class="tag">Systems</span>
+        </div>
+
+        <div class="pubs">
+          <h2 style="margin:0 0 10px;">Publications (optional)</h2>
+          <div class="pub">
+            <div class="t">Add your paper title here</div>
+            <div class="m">Venue / year · Authors · <a href="#" onclick="return false;">PDF</a> · <a href="#" onclick="return false;">Code</a></div>
+          </div>
+          <div class="pub">
+            <div class="t">Another paper or project</div>
+            <div class="m">Workshop / year · Short description</div>
+          </div>
+          <p class="muted" style="margin:10px 0 0; font-size:13px;">
+            Tip: You can delete this section if you don’t need it.
+          </p>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Links</h2>
+        <p class="muted" style="margin:0 0 10px; line-height:1.6;">
+          Add your public profiles here. These help others verify and find your work.
+        </p>
+
+        <div class="btns">
+          <!-- Replace # with your real links -->
+          <a class="btn" href="#" onclick="return false;"><span class="dot"></span> Google Scholar</a>
+          <a class="btn" href="#" onclick="return false;"><span class="dot g"></span> GitHub</a>
+          <a class="btn" href="#" onclick="return false;"><span class="dot"></span> Semantic Scholar</a>
+          <a class="btn" href="#" onclick="return false;"><span class="dot g"></span> ORCID</a>
+          <a class="btn" href="#" onclick="return false;"><span class="dot"></span> LinkedIn</a>
+        </div>
+
+        <div style="margin-top:14px; border-top:1px solid var(--line); padding-top:12px;">
+          <h2 style="margin:0 0 10px;">OpenReview verification</h2>
+          <p class="muted" style="margin:0; line-height:1.65;">
+            This page displays your <strong>name</strong> and <strong>email</strong> clearly, which is commonly
+            required when completing an OpenReview profile.
+          </p>
+        </div>
+
+        <div style="margin-top:12px;">
+          <h2 style="margin:0 0 10px;">How to edit</h2>
+          <ol class="muted" style="margin:0; padding-left:18px; line-height:1.7;">
+            <li>Replace “Affiliation” and interest tags.</li>
+            <li>Update the link buttons with your real URLs.</li>
+            <li>Commit the changes, then refresh your <code style="color:rgba(255,255,255,.75)">username.github.io</code> page.</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div>© <span id="y"></span> Xuyuan Zhu</div>
+      <div class="muted">Hosted on GitHub Pages</div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
