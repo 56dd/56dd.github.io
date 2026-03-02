@@ -1,0 +1,281 @@
+,
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Learning Journal - Xuyuan Zhu</title>
+  <meta name="description" content="Learning journal and technical notes by Xuyuan Zhu" />
+
+  <style>
+    :root {
+      --color-primary: #1d1d1f;
+      --color-secondary: #86868b;
+      --color-accent: #0071e3;
+      --color-background: #ffffff;
+      --color-subtle: #f5f5f7;
+      --color-border: #d2d2d7;
+
+      --font-display: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+      --font-heading: 'Tiempos Text', 'Crimson Pro', Georgia, serif;
+      --font-body: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, sans-serif;
+
+      --space-xs: 4px;
+      --space-sm: 8px;
+      --space-md: 12px;
+      --space-lg: 16px;
+      --space-xl: 24px;
+      --space-2xl: 32px;
+      --space-3xl: 48px;
+      --space-4xl: 64px;
+      --space-5xl: 96px;
+
+      --text-xs: 12px;
+      --text-sm: 14px;
+      --text-base: 16px;
+      --text-lg: 18px;
+      --text-xl: 20px;
+      --text-2xl: 24px;
+      --text-3xl: 32px;
+      --text-4xl: 48px;
+      --text-5xl: 64px;
+
+      --max-width: 1200px;
+      --content-width: 800px;
+      --section-padding: var(--space-4xl);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: var(--text-base);
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--color-primary);
+      background-color: var(--color-background);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      line-height: 1.2;
+      margin-bottom: var(--space-lg);
+    }
+
+    h1 {
+      font-size: var(--text-5xl);
+      letter-spacing: -0.02em;
+    }
+
+    h2 {
+      font-size: var(--text-4xl);
+      letter-spacing: -0.01em;
+    }
+
+    h3 {
+      font-size: var(--text-3xl);
+    }
+
+    p {
+      margin-bottom: var(--space-lg);
+      color: var(--color-primary);
+    }
+
+    a {
+      color: var(--color-accent);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    a:hover {
+      color: var(--color-primary);
+      text-decoration: underline;
+    }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--space-lg);
+    }
+
+    .content {
+      max-width: var(--content-width);
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: var(--section-padding) 0;
+    }
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--color-border);
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+
+    .navbar__content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: var(--space-md) 0;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding-left: var(--space-lg);
+      padding-right: var(--space-lg);
+    }
+
+    .navbar__brand {
+      font-size: var(--text-lg);
+      font-weight: 600;
+      color: var(--color-primary);
+      text-decoration: none;
+    }
+
+    .navbar__nav {
+      display: flex;
+      list-style: none;
+      gap: var(--space-xl);
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar__link {
+      color: var(--color-primary);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s ease;
+      font-size: var(--text-sm);
+    }
+
+    .navbar__link:hover {
+      color: var(--color-accent);
+    }
+
+    .navbar__link.active {
+      color: var(--color-accent);
+    }
+
+    body {
+      padding-top: 60px;
+    }
+
+    .page-title {
+      font-size: var(--text-5xl);
+      margin-bottom: var(--space-lg);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+
+    .page-subtitle {
+      font-size: var(--text-xl);
+      color: var(--color-secondary);
+      margin-bottom: var(--space-3xl);
+      line-height: 1.4;
+    }
+
+    .empty-state {
+      background: var(--color-background);
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      padding: var(--space-4xl);
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    .empty-state h2 {
+      font-size: var(--text-3xl);
+      margin-bottom: var(--space-lg);
+      font-weight: 600;
+    }
+
+    .empty-state p {
+      color: var(--color-secondary);
+      margin-bottom: var(--space-xl);
+      font-size: var(--text-lg);
+      line-height: 1.6;
+    }
+
+    .footer {
+      background: var(--color-subtle);
+      padding: var(--space-3xl) 0;
+      margin-top: var(--space-5xl);
+      text-align: center;
+    }
+
+    .footer__content {
+      color: var(--color-secondary);
+      font-size: var(--text-sm);
+    }
+
+    @media (max-width: 768px) {
+      :root {
+        --section-padding: var(--space-2xl);
+        --text-5xl: 48px;
+        --text-4xl: 36px;
+        --text-3xl: 28px;
+      }
+
+      .navbar__nav {
+        gap: var(--space-lg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="navbar__content">
+      <a href="index.html" class="navbar__brand">Xuyuan Zhu</a>
+      <ul class="navbar__nav">
+        <li><a href="index.html" class="navbar__link">Home</a></li>
+        <li><a href="publications.html" class="navbar__link">Publications</a></li>
+        <li><a href="projects.html" class="navbar__link">Projects</a></li>
+        <li><a href="blog.html" class="navbar__link">Blog</a></li>
+        <li><a href="learning.html" class="navbar__link active">Learning</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="section">
+    <div class="container">
+      <div class="content">
+        <h1 class="page-title">Learning Journal</h1>
+        <p class="page-subtitle">Technical notes, learning progress, and research insights</p>
+
+        <div class="empty-state">
+          <h2>No learning notes yet</h2>
+          <p>Technical notes, research insights, and learning progress will be documented here. This will include notes on Natural Language Processing, Large Language Models, Information Retrieval, and related topics.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__content">
+        <p>&copy; 2024 Xuyuan Zhu. All rights reserved.</p>
+        <p style="margin-top: var(--space-md);">
+          <a href="mailto:zhuxuyuan22@mails.ucas.ac.cn" style="color: var(--color-secondary);">Email</a> •
+          <a href="https://github.com/56dd" target="_blank" rel="noopener noreferrer" style="color: var(--color-secondary);">GitHub</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

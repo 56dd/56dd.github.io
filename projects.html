@@ -1,14 +1,14 @@
+,
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Xuyuan Zhu - Personal Website</title>
-  <meta name="description" content="Personal website of Xuyuan Zhu - researcher in Natural Language Processing and Large Language Models" />
+  <title>Projects - Xuyuan Zhu</title>
+  <meta name="description" content="Projects by Xuyuan Zhu" />
 
   <style>
     :root {
-      /* Colors - Light theme (Apple style) */
       --color-primary: #1d1d1f;
       --color-secondary: #86868b;
       --color-accent: #0071e3;
@@ -16,12 +16,10 @@
       --color-subtle: #f5f5f7;
       --color-border: #d2d2d7;
 
-      /* Typography */
       --font-display: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
       --font-heading: 'Tiempos Text', 'Crimson Pro', Georgia, serif;
       --font-body: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, sans-serif;
 
-      /* Spacing */
       --space-xs: 4px;
       --space-sm: 8px;
       --space-md: 12px;
@@ -32,7 +30,6 @@
       --space-4xl: 64px;
       --space-5xl: 96px;
 
-      /* Typography Scale */
       --text-xs: 12px;
       --text-sm: 14px;
       --text-base: 16px;
@@ -43,7 +40,6 @@
       --text-4xl: 48px;
       --text-5xl: 64px;
 
-      /* Layout */
       --max-width: 1200px;
       --content-width: 800px;
       --section-padding: var(--space-4xl);
@@ -121,66 +117,6 @@
       padding: var(--section-padding) 0;
     }
 
-    .grid {
-      display: grid;
-      gap: var(--space-xl);
-    }
-
-    .grid-2 {
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    }
-
-    .grid-3 {
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    }
-
-    .btn {
-      display: inline-block;
-      padding: var(--space-md) var(--space-xl);
-      border-radius: 20px;
-      font-weight: 500;
-      text-decoration: none;
-      transition: all 0.2s ease;
-      cursor: pointer;
-      border: none;
-      font-size: var(--text-base);
-    }
-
-    .btn-primary {
-      background-color: var(--color-accent);
-      color: white;
-    }
-
-    .btn-primary:hover {
-      background-color: #0077ed;
-      color: white;
-      text-decoration: none;
-    }
-
-    .btn-secondary {
-      background-color: var(--color-subtle);
-      color: var(--color-primary);
-    }
-
-    .btn-secondary:hover {
-      background-color: #ebebf0;
-      color: var(--color-primary);
-      text-decoration: none;
-    }
-
-    .text-center {
-      text-align: center;
-    }
-
-    .mb-xl {
-      margin-bottom: var(--space-xl);
-    }
-
-    .mb-3xl {
-      margin-bottom: var(--space-3xl);
-    }
-
-    /* Navigation */
     .navbar {
       position: fixed;
       top: 0;
@@ -239,59 +175,71 @@
       padding-top: 60px;
     }
 
-    /* Hero */
-    .hero {
-      padding: var(--space-5xl) 0 var(--space-4xl);
-      text-align: center;
-      background: linear-gradient(135deg, var(--color-background) 0%, var(--color-subtle) 100%);
-    }
-
-    .hero__title {
+    .page-title {
+      font-size: var(--text-5xl);
       margin-bottom: var(--space-lg);
+      font-weight: 600;
+      letter-spacing: -0.02em;
     }
 
-    .hero__subtitle {
+    .page-subtitle {
       font-size: var(--text-xl);
       color: var(--color-secondary);
-      margin-bottom: var(--space-xl);
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
+      margin-bottom: var(--space-3xl);
+      line-height: 1.4;
     }
 
-    .hero__cta {
-      display: flex;
-      gap: var(--space-md);
-      justify-content: center;
-      margin-top: var(--space-xl);
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: var(--space-xl);
+      margin-top: var(--space-3xl);
     }
 
-    /* Card */
-    .card {
+    .project-card {
       background: var(--color-background);
+      border: 1px solid var(--color-border);
       border-radius: 12px;
       padding: var(--space-xl);
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
       transition: all 0.3s ease;
-      border: 1px solid var(--color-border);
     }
 
-    .card:hover {
+    .project-card:hover {
       transform: translateY(-4px);
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
     }
 
-    .card__title {
+    .project-title {
       font-size: var(--text-xl);
       margin-bottom: var(--space-md);
+      font-weight: 600;
     }
 
-    .card__description {
+    .project-description {
       color: var(--color-secondary);
       margin-bottom: var(--space-lg);
+      line-height: 1.6;
     }
 
-    /* Footer */
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-sm);
+      padding: var(--space-sm) var(--space-md);
+      background: rgba(0, 113, 227, 0.1);
+      border: 1px solid rgba(0, 113, 227, 0.3);
+      border-radius: 8px;
+      font-size: var(--text-sm);
+      color: var(--color-accent);
+      transition: all 0.2s ease;
+    }
+
+    .project-link:hover {
+      background: rgba(0, 113, 227, 0.2);
+      text-decoration: none;
+    }
+
     .footer {
       background: var(--color-subtle);
       padding: var(--space-3xl) 0;
@@ -304,22 +252,12 @@
       font-size: var(--text-sm);
     }
 
-    /* Responsive */
     @media (max-width: 768px) {
       :root {
         --section-padding: var(--space-2xl);
         --text-5xl: 48px;
         --text-4xl: 36px;
         --text-3xl: 28px;
-      }
-
-      .container {
-        padding: 0 var(--space-md);
-      }
-
-      .hero__cta {
-        flex-direction: column;
-        align-items: center;
       }
 
       .navbar__nav {
@@ -334,91 +272,36 @@
     <div class="navbar__content">
       <a href="index.html" class="navbar__brand">Xuyuan Zhu</a>
       <ul class="navbar__nav">
-        <li><a href="index.html" class="navbar__link active">Home</a></li>
+        <li><a href="index.html" class="navbar__link">Home</a></li>
         <li><a href="publications.html" class="navbar__link">Publications</a></li>
-        <li><a href="projects.html" class="navbar__link">Projects</a></li>
+        <li><a href="projects.html" class="navbar__link active">Projects</a></li>
         <li><a href="blog.html" class="navbar__link">Blog</a></li>
         <li><a href="learning.html" class="navbar__link">Learning</a></li>
       </ul>
     </div>
   </nav>
 
-  <!-- Hero Section -->
-  <section class="hero">
+  <div class="section">
     <div class="container">
       <div class="content">
-        <h1 class="hero__title">Xuyuan Zhu</h1>
-        <p class="hero__subtitle">
-          Student at University of Chinese Academy of Sciences (UCAS)<br>
-          Research interests: Natural Language Processing, Large Language Models, Information Retrieval
-        </p>
-        <div class="hero__cta">
-          <a href="publications.html" class="btn btn-primary">View Publications</a>
-          <a href="projects.html" class="btn btn-secondary">View Projects</a>
-        </div>
-      </div>
-    </div>
-  </section>
+        <h1 class="page-title">Projects</h1>
+        <p class="page-subtitle">Open source projects and personal work</p>
 
-  <!-- About Section -->
-  <section class="section">
-    <div class="container">
-      <div class="content">
-        <h2 class="text-center mb-3xl">About</h2>
-        <div class="grid grid-2" style="align-items: center;">
-          <div>
-            <p style="font-size: var(--text-lg); color: var(--color-secondary); margin-bottom: var(--space-lg);">
-              Hi, I'm <strong>Xuyuan Zhu</strong>, a student at the <strong>University of Chinese Academy of Sciences (UCAS)</strong>.
+        <div class="project-grid">
+          <div class="project-card">
+            <h3 class="project-title">56dd.github.io</h3>
+            <p class="project-description">
+              Personal academic homepage and blog. A minimal, clean website for academic verification and project showcase.
             </p>
-            <p>
-              My research interests include Natural Language Processing, Large Language Models, and Information Retrieval.
-              This website serves as my academic homepage for verification purposes and to showcase my work.
-            </p>
-            <p>
-              I'm passionate about exploring the capabilities of large language models and their applications in
-              information retrieval and evaluation.
-            </p>
-          </div>
-          <div class="text-center">
-            <div style="width: 200px; height: 200px; background: var(--color-subtle); border-radius: 50%; margin: 0 auto; display: flex; align-items: center; justify-content: center; color: var(--color-secondary); font-size: var(--text-sm);">
-              Photo
-            </div>
+            <a href="https://github.com/56dd/56dd.github.io" class="project-link" target="_blank" rel="noopener noreferrer">
+              View on GitHub ↗
+            </a>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
 
-  <!-- Contact Section -->
-  <section class="section" style="background: var(--color-subtle);">
-    <div class="container">
-      <div class="content">
-        <h2 class="text-center mb-3xl">Contact & Links</h2>
-        <div class="grid grid-3">
-          <div class="card text-center">
-            <h3 class="card__title">Email</h3>
-            <p class="card__description">
-              <a href="mailto:zhuxuyuan22@mails.ucas.ac.cn">zhuxuyuan22@mails.ucas.ac.cn</a>
-            </p>
-          </div>
-          <div class="card text-center">
-            <h3 class="card__title">GitHub</h3>
-            <p class="card__description">
-              <a href="https://github.com/56dd" target="_blank" rel="noopener noreferrer">github.com/56dd</a>
-            </p>
-          </div>
-          <div class="card text-center">
-            <h3 class="card__title">Affiliation</h3>
-            <p class="card__description">
-              University of Chinese Academy of Sciences (UCAS)
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
   <footer class="footer">
     <div class="container">
       <div class="footer__content">
