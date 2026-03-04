@@ -1,0 +1,30 @@
+{
+  "site": {
+    "title": "Xuyuan Zhu",
+    "email": "zhuxuyuan22@mails.ucas.ac.cn",
+    "github": "https://github.com/56dd",
+    "affiliation": "University of Chinese Academy of Sciences (UCAS)",
+    "research_interests": [
+      "Natural Language Processing",
+      "Large Language Models",
+      "Information Retrieval",
+      "Evaluation"
+    ],
+    "profile": {
+      "photo": "myphotos/photo1.jpg",
+      "name": "Xuyuan Zhu",
+      "bio": "Student at University of Chinese Academy of Sciences (UCAS). Research interests: Natural Language Processing, Large Language Models, Information Retrieval."
+    }
+  },
+  "publications": [],
+  "projects": [
+    {
+      "id": "personal-website",
+      "name": "56dd.github.io",
+      "description": "Personal academic homepage and blog. A minimal, clean website for academic verification and project showcase.",
+      "github": "https://github.com/56dd/56dd.github.io"
+    }
+  ],
+  "blog_posts": [],
+  "learning_notes": []
+}
